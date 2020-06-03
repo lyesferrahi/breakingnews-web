@@ -1,0 +1,4 @@
+{
+    "apiEndPoint": "https://jsonplaceholder.typicodsse.com/posts",
+    "breakingnewsapi": "http://192.168.1.16:3900"
+}
