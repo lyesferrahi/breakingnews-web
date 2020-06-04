@@ -9,6 +9,7 @@ import LoginForm from './loginForm';
 import { getCurrentUser } from './services/authService'
 import ProtectedRoute from './components/common/protectedRoute';
 import ContactForm from './contactForm';
+import Donation from './donation';
 
 const { Header, Footer } = Layout;
 
@@ -49,6 +50,7 @@ class Panel extends Component {
                         <ProtectedRoute path="/tech" render={(props) => <Tech {...props} user={this.state.user} />} />
                         <Route path="/login" render={(props) => <LoginForm {...props} />} />
                         <Route path="/contact" render={(props) => <ContactForm {...props} />} />
+                        <Route path="/donation" render={(props) => <Donation {...props} />} />
                         <Route path="/not-found" render={() => <h2 style={{ marginTop: 70 }}>NotFound</h2>} />
                         <Redirect exact from="/" to="/breakingnews" />
                         <Redirect to="/not-found" />

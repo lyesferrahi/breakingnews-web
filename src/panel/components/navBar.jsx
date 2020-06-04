@@ -24,7 +24,8 @@ class NavBar extends Component {
                     <Menu.Item key="3">Business</Menu.Item>
                     <Menu.Item key="4">Football</Menu.Item>
                     <Menu.Item key="10"><Link to="/contact">Contact us</Link></Menu.Item>
-                    <Menu.Item key="10">Pricing</Menu.Item>
+                    <Menu.Item key="11">Pricing</Menu.Item>
+                    <Menu.Item key="12"><Link to="/donation">Donation</Link></Menu.Item>
                     {user && <Menu.Item key="5">Forex</Menu.Item>}
                     {user && <Menu.Item key="6">Real estate</Menu.Item>}
 
