@@ -9,7 +9,7 @@ import LoginForm from './loginForm';
 import { getCurrentUser } from './services/authService'
 import ProtectedRoute from './components/common/protectedRoute';
 import ContactForm from './contactForm';
-import Donation from './donation';
+import Donation from './payment/donation'
 
 const { Header, Footer } = Layout;
 
