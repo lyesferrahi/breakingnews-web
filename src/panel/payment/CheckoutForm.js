@@ -2,9 +2,22 @@ import React from 'react';
 import { ElementsConsumer, CardElement } from '@stripe/react-stripe-js';
 import CardSection from './cardSection';
 import { getSecret } from '../services/paymentService';
+import { notification } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 
 class CheckoutForm extends React.Component {
+
+
+
+    openNotification = (arg) => {
+        notification.open({
+            message: arg,
+            description:
+                'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+            icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+        });
+    };
 
     handleSubmit = async (event) => {
         // We don't want to let default form submission happen here,
@@ -39,9 +52,13 @@ class CheckoutForm extends React.Component {
         if (result.error) {
             // Show error to your customer (e.g., insufficient funds)
             console.log(result.error.message);
+            this.openNotification(result.error.message)
         } else {
             // The payment has been processed!
             if (result.paymentIntent.status === 'succeeded') {
+
+                this.openNotification("The payment has been processed!")
+
                 // Show a success message to your customer
                 // There's a risk of the customer closing the window before callback
                 // execution. Set up a webhook or plugin to listen for the
