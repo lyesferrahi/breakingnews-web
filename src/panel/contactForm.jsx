@@ -3,7 +3,6 @@ import { Input, Button, Row, Col } from 'antd';
 import { sendContactForm } from '../panel/services/mailService';
 
 const { TextArea } = Input;
-var isNewArticle;
 
 class ContactForm extends Component {
     state = {
@@ -12,10 +11,6 @@ class ContactForm extends Component {
             text: "",
             sender: ""
         }
-    }
-
-    async componentDidMount() {
-
     }
 
     handleChange = ({ currentTarget: input }) => {
@@ -34,7 +29,7 @@ class ContactForm extends Component {
         //Call service
         sendContactForm(question)
 
-        //this.props.history.push("/");
+        this.props.history.push("/");
     };
 
     handleBack = () => {
@@ -42,7 +37,6 @@ class ContactForm extends Component {
     }
 
     render() {
-        const { currentArticle } = this.state;
         return (
             <div>
                 <h2 style={{ textAlign: "center" }}>Contact us</h2>
