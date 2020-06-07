@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Button, Row, Col } from 'antd';
-//import { getArticle, saveArticle, updateArticle } from '../services/articleService';
+import { sendContactForm } from '../panel/services/mailService';
 
 const { TextArea } = Input;
 var isNewArticle;
@@ -8,10 +8,9 @@ var isNewArticle;
 class ContactForm extends Component {
     state = {
         currentArticle: {
-            _id: "",
-            title: "",
-            content: "",
-            source: ""
+            name: "",
+            text: "",
+            sender: ""
         }
     }
 
@@ -26,17 +25,16 @@ class ContactForm extends Component {
     }
 
     handleSubmit = async () => {
-        const submitedArticle = {
-            _id: this.state.currentArticle._id,
-            title: this.state.currentArticle.title,
-            source: this.state.currentArticle.source,
-            content: this.state.currentArticle.content,
+        const question = {
+            name: this.state.currentArticle.name,
+            sender: this.state.currentArticle.sender,
+            text: this.state.currentArticle.text,
         }
 
         //Call service
-        //..
+        sendContactForm(question)
 
-        this.props.history.push("/");
+        //this.props.history.push("/");
     };
 
     handleBack = () => {
@@ -51,13 +49,13 @@ class ContactForm extends Component {
                 <Row>
                     <Col span={12} offset={6}>
                         <label>Name:</label><br />
-                        <Input name="title" value={this.state.currentArticle.title} onChange={this.handleChange} />
+                        <Input name="name" value={this.state.currentArticle.name} onChange={this.handleChange} />
 
                         <label>Email:</label><br />
-                        <Input name="source" value={this.state.currentArticle.source} onChange={this.handleChange} />
+                        <Input name="sender" value={this.state.currentArticle.sender} onChange={this.handleChange} />
 
                         <label>Question:</label><br />
-                        <TextArea name="content" value={this.state.currentArticle.content} rows={20} onChange={this.handleChange} />
+                        <TextArea name="text" value={this.state.currentArticle.text} rows={20} onChange={this.handleChange} />
 
                         <Button onClick={this.handleBack} type="danger" >Back</Button>
                         <Button onClick={this.handleSubmit} type="primary" >Submit</Button>

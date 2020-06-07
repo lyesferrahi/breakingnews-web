@@ -8,8 +8,6 @@ import { SmileOutlined } from '@ant-design/icons';
 
 class CheckoutForm extends React.Component {
 
-
-
     openNotification = (arg) => {
         notification.open({
             message: arg,
